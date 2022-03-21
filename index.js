@@ -2,9 +2,9 @@ const express = require('express');
 const path = require('path');
 const PORT = process.env.PORT || 5000;
 const user = {
-  "name": "Jack",
-  "isMarried": false,
-  "age": 25
+  name: "Jack",
+  isMarried: false,
+  age: 25
 }
 
 express()
@@ -14,7 +14,7 @@ express()
 
   .set('view engine', 'ejs')
 
-  .get('/emr', (req, res) => res.send(user))
+  .get('/emr', (req, res) => res.send(JSON.stringify(user)))
 
   .get('/test', (req, res) => res.send("Here is your response Jacob!"))
 
