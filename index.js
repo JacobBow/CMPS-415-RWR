@@ -2,9 +2,9 @@ const express = require('express');
 const path = require('path');
 const PORT = process.env.PORT || 5000;
 const user = {
-  name: "Jack",
-  isMarried: false,
-  age: 25
+  "name": "Jack",
+  "isMarried": false,
+  "age": 25
 }
 
 express()
@@ -13,6 +13,8 @@ express()
   .set('views', path.join(__dirname, 'views'))
 
   .set('view engine', 'ejs')
+
+  .get('/', (req, res) => res.send(user))
 
   .get('/emr', (req, res) => res.send(JSON.stringify(user)))
 
