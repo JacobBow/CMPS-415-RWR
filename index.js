@@ -31,7 +31,8 @@ express()
 
   .get('/emr/:id', (req, res) => {
       var id = req.params.id
-      res.send(emrRecords.at(id))
+      res.send('Accessing emr with id of ' + id)
+      //res.send(emrRecords.at(id))
     }
   )
 
