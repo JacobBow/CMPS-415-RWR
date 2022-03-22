@@ -31,16 +31,16 @@ express()
 
   .set('view engine', 'ejs')
 
-  .get('/', (req, res) => res.send(user))
+  .get('/', (req, res) => res.send('Welcome'))
 
   .get('/emr/', (req, res) => res.status(200).send(emrRecords))
 
   .get('/emr/:id', (req, res) => res.status(200).send(emrRecords[req.params.id]))
 
-  // .post('/emr/', (req, res) => {
-  //    console.log(req.body)
-  //     res.status(201).send('emrRecord Created')
-  //   }  
-  // )
+   .post('/emr/', (req, res) => {
+      console.log(req.body)
+      res.status(201).send('emrRecord Created')
+    }  
+  )
 
   .listen(PORT, () => console.log(`Listening on ${ PORT }`));
