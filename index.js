@@ -30,7 +30,8 @@ express()
   .get('/emr', (req, res) => res.send(emrRecords))
 
   .get('/emr/:id', (req, res) => {
-      res.send(req.params.id)
+      var id = req.params.id
+      res.send(emrRecords.id(id))
     }
   )
 
