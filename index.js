@@ -28,17 +28,13 @@ express()
 
   .get('/', (req, res) => res.send(user))
 
-  .get('/emr', (req, res) => res.send(emrRecords))
+  .get('/emr/', (req, res) => res.status(200).send(emrRecords))
 
-  .get('/emr/:id', (req, res) => res.send(emrRecords[req.params.id]))
+  .get('/emr/:id', (req, res) => res.status(200).send(emrRecords[req.params.id]))
 
-  .post('/emr', (req, res) => {
-      
-      console.log(req.body.id)
-      console.log(req.body.firstName)
-      console.log(req.body.lastName)
-      
-      res.send('Created new record: ' + emrRecords[length])
+  .post('/emr/', (req, res) => {
+      console.log(req.body)
+      res.status(201).send('emrRecord Created')
     }  
   )
 
