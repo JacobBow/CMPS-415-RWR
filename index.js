@@ -39,8 +39,10 @@ express()
   .get('/emr/:id', (req, res) => res.status(200).send(emrRecords[req.params.id]))
 
   .post('/emr/', (req, res) => {
-     res.status(201).send('emrRecord Created' + req.body)
-   }  
+      var newRecord = req.body
+      emrRecords.push(newRecord)
+      res.status(201).send('emrRecord Created' + req.body)
+    }  
   )
 
   .listen(PORT, () => console.log(`Listening on ${ PORT }`));
