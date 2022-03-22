@@ -1,4 +1,5 @@
 const express = require('express');
+const res = require('express/lib/response');
 const path = require('path');
 const PORT = process.env.PORT || 5000;
 const emrRecords = [
@@ -28,6 +29,8 @@ express()
 
   .get('/emr', (req, res) => res.send(emrRecords))
 
-  .get('/test', (req, res) => res.send("Here is your response Jacob!"))
+  .get('/emr/:id', (req, res) => res.send(emrRecords.at(id)))
+
+  // .post('/emr', (req, res) => )
 
   .listen(PORT, () => console.log(`Listening on ${ PORT }`));
