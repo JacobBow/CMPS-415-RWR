@@ -32,12 +32,12 @@ express()
 
   .get('/emr/:id', (req, res) => {
       var id = req.params.id
-      //res.send('Accessing emr with id of ' + id)
-      for (var i = 0; emrRecords.length; i++) {
-        if (emrRecords[i].id == id) {
-          res.send(emrRecords[i])
-        }
-      }
+      res.send(emrRecords[id])
+      // for (var i = 0; emrRecords.length; i++) {
+      //   if (emrRecords[i].id == id) {
+      //     res.send(emrRecords[i])
+      //   }
+      // }
     }
   )
 
