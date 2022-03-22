@@ -30,17 +30,8 @@ express()
 
   .get('/emr', (req, res) => res.send(emrRecords))
 
-  .get('/emr/:id', (req, res) => {
-      var id = req.params.id
-      res.send(emrRecords[id])
-      // for (var i = 0; emrRecords.length; i++) {
-      //   if (emrRecords[i].id == id) {
-      //     res.send(emrRecords[i])
-      //   }
-      // }
-    }
-  )
+  .get('/emr/:id', (req, res) => res.send(emrRecords.req.params.id))
 
-  // .post('/emr', (req, res) => )
+  //.post('/emr', (req, res) => )
 
   .listen(PORT, () => console.log(`Listening on ${ PORT }`));
