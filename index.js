@@ -1,5 +1,4 @@
 const express = require('express');
-const app = express
 const { append } = require('express/lib/response');
 const res = require('express/lib/response');
 const path = require('path');
@@ -22,24 +21,26 @@ const emrRecords = [
 ]
 
 //Allow for urlencoded request bodies
-app.use(express.urlencoded({extended: false}))
+//use(express.urlencoded({extended: false}))
+//Allow for JSON request bodies
+//use(express.json())
+express()
+  .use(express.static(path.join(__dirname, 'public')))
 
-app.use(express.static(path.join(__dirname, 'public')))
+  .set('views', path.join(__dirname, 'views'))
 
-app.set('views', path.join(__dirname, 'views'))
+  .set('view engine', 'ejs')
 
-app.set('view engine', 'ejs')
+  .get('/', (req, res) => res.send(user))
 
-app.get('/', (req, res) => res.send(user))
+  .get('/emr/', (req, res) => res.status(200).send(emrRecords))
 
-app.get('/emr/', (req, res) => res.status(200).send(emrRecords))
+  .get('/emr/:id', (req, res) => res.status(200).send(emrRecords[req.params.id]))
 
-app.get('/emr/:id', (req, res) => res.status(200).send(emrRecords[req.params.id]))
+  // .post('/emr/', (req, res) => {
+  //    console.log(req.body)
+  //     res.status(201).send('emrRecord Created')
+  //   }  
+  // )
 
-app.post('/emr/', (req, res) => {
-    console.log(req.body)
-    res.status(201).send('emrRecord Created')
-  }  
-)
-
-app.listen(PORT, () => console.log(`Listening on ${ PORT }`));
+  .listen(PORT, () => console.log(`Listening on ${ PORT }`));
