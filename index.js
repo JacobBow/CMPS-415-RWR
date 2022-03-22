@@ -33,11 +33,11 @@ express()
   .get('/emr/:id', (req, res) => res.send(emrRecords[req.params.id]))
 
   .post('/emr', (req, res) => {
-      emrRecords.push(
-        req.body.id,
-        req.body.firstName,
-        req.body.lastName
-      )
+      
+      console.log(req.body.id)
+      console.log(req.body.firstName)
+      console.log(req.body.lastName)
+      
       res.send('Created new record: ' + emrRecords[length])
     }  
   )
