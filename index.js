@@ -38,8 +38,7 @@ express()
   .get('/emr/:id', (req, res) => res.status(200).send(emrRecords[req.params.id]))
 
    .post('/emr/', (req, res) => {
-      res.status(201).send('emrRecord Created')
-      res.send(req.body)
+      res.status(201).send('emrRecord Created' + req.body)
     }  
   )
 
