@@ -41,7 +41,7 @@ express()
   .post('/emr/', (req, res) => {
       var newRecord = req.body
       emrRecords.push(newRecord)
-      res.status(201).send('New emrRecord created for' + newRecord.firstName + ' ' + newRecord.lastName)
+      res.status(201).send('New emrRecord created for ' + newRecord.firstName + ' ' + newRecord.lastName)
     }  
   )
 
