@@ -20,11 +20,12 @@ const emrRecords = [
 
 ]
 
-//Allow for urlencoded request bodies
-//use(express.urlencoded({extended: false}))
-//Allow for JSON request bodies
-//use(express.json())
 express()
+  //Allow for urlencoded request bodies
+  .use(express.urlencoded({extended: false}))
+  //Allow for JSON request bodies
+  .use(express.json())
+
   .use(express.static(path.join(__dirname, 'public')))
 
   .set('views', path.join(__dirname, 'views'))
@@ -37,9 +38,9 @@ express()
 
   .get('/emr/:id', (req, res) => res.status(200).send(emrRecords[req.params.id]))
 
-   .post('/emr/', (req, res) => {
-      res.status(201).send('emrRecord Created' + req.body)
-    }  
+  .post('/emr/', (req, res) => {
+     res.status(201).send('emrRecord Created' + req.body)
+   }  
   )
 
   .listen(PORT, () => console.log(`Listening on ${ PORT }`));
