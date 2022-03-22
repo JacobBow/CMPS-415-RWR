@@ -29,7 +29,11 @@ express()
 
   .get('/emr', (req, res) => res.send(emrRecords))
 
-  .get('/emr/:id', (req, res) => res.send(emrRecords.at(req.params().id())))
+  .get('/emr/:id', (req, res) => {
+      var id = req.query().id()
+      res.send('emr ' + id)
+    }
+  )
 
   // .post('/emr', (req, res) => )
 
