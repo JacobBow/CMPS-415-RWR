@@ -1,6 +1,7 @@
 const express = require('express');
 const res = require('express/lib/response');
 const path = require('path');
+const { send } = require('process');
 const PORT = process.env.PORT || 5000;
 const emrRecords = [
     {
@@ -31,8 +32,12 @@ express()
 
   .get('/emr/:id', (req, res) => {
       var id = req.params.id
-      res.send('Accessing emr with id of ' + id)
-      //res.send(emrRecords.at(id))
+      //res.send('Accessing emr with id of ' + id)
+      for (var i = 0; emrRecords.length; i++) {
+        if (emrRecords[i].id == id) {
+          res.send(emrRecords[i])
+        }
+      }
     }
   )
 
