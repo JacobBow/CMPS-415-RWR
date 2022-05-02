@@ -9,13 +9,15 @@ const emrRecords = [
       "id": 0,
       "firstName": "Jacob",
       "lastName": "Bowen",
-      "favMeme": "poggers"
+      "age": 20,
+      "symptoms": "mucus"
     },
     {
       "id": 1,
       "firstName": "Jakobe",
       "lastName": "Jones",
-      "favMeme": "pepe"
+      "age": 21,
+      "symptoms": "cough"
     }
 
 ]
